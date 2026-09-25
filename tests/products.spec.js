@@ -10,4 +10,6 @@ test('Product Page is Login', async ({page}) => {
 
       await expect(page).toHaveURL(/inventory/);
 
+      await expect(page.getByText('Sauce Labs Backpack')).toBeVisible();
+
 });
