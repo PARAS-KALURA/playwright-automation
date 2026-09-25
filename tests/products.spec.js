@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('Product Page is Login', async ({page}) => {
+test('User can add Backpack to cart', async ({page}) => {
  
   await page.goto('https://www.saucedemo.com/');
 
@@ -10,6 +10,12 @@ test('Product Page is Login', async ({page}) => {
 
       await expect(page).toHaveURL(/inventory/);
 
-      await expect(page.getByText('Sauce Labs Backpack')).toBeVisible();
+await page
+  .locator('.inventory_item')
+  .filter({ hasText: 'Sauce Labs Backpack' })
+  .getByRole('button', { name: 'Add to cart' })
+  .click();
+  
+      await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
 
 });
