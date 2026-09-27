@@ -1,4 +1,5 @@
 import { test, expect } from '@playwright/test';
+import ProductsPage from '../pages/ProductsPage.js';
 
 test('User can add Backpack to cart', async ({page}) => {
  
@@ -10,11 +11,9 @@ test('User can add Backpack to cart', async ({page}) => {
 
       await expect(page).toHaveURL(/inventory/);
 
-await page
-  .locator('.inventory_item')
-  .filter({ hasText: 'Sauce Labs Backpack' })
-  .getByRole('button', { name: 'Add to cart' })
-  .click();
+      const productsPage = new ProductsPage(page);
+
+await productsPage.addBackpackToCart();
   
       await expect(page.locator('.shopping_cart_badge')).toHaveText('1');
 
