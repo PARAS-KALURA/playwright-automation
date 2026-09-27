@@ -26,3 +26,17 @@ test("Invalid Password", async ({page}) => {
      ).toBeVisible;
      
 })
+
+test("Invalid Username", async ({ page }) => {
+
+  const loginPage = new LoginPage(page);
+
+  await page.goto("https://www.saucedemo.com/");
+
+  await loginPage.login('wrong_user', 'secret_sauce');
+
+  await expect(
+    page.getByText("Username and password do not match any user in this service")
+  ).toBeVisible();
+
+});
