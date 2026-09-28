@@ -54,7 +54,7 @@ test('Backpack can be removed from cart', async ({ page }) => {
   // 5. Remove Backpack
   await cartPage.removeBackpack();
 
-  // 6. Verify Backpack is removed
+  // 6. Verify Backpack is removedd
   await expect(
     page.getByText('Sauce Labs Backpack')
   ).not.toBeVisible();
