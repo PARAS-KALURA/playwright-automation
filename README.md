@@ -1,19 +1,30 @@
-# Playwright Automation Project
+# Playwright Automation Framework
 
-A Playwright automation framework built with JavaScript for testing the SauceDemo web application.
+A JavaScript-based Playwright automation framework built to test the
+[SauceDemo](https://www.saucedemo.com/) web application.
+
+The project follows the **Page Object Model (POM)** design pattern and
+covers login, product, cart, and checkout workflows.
+
+---
 
 ## 🚀 Tech Stack
 
 - JavaScript
 - Playwright
 - Node.js
-- Git & GitHub
 - Page Object Model (POM)
+- Git & GitHub
+
+---
 
 ## 📁 Project Structure
 
 ```text
 playwright-automation/
+│
+├── .github/
+│   └── workflows/
 │
 ├── pages/
 │   ├── LoginPage.js
